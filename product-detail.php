@@ -1,28 +1,26 @@
 <?php
-include('connectDB.php');
+include ('connectDB.php');
 
 if (isset($_GET['id'])) {
     $id = $_GET['id'];
     $sql = "SELECT * FROM product WHERE id = '" . $id . "'";
     $result = $conn->query($sql);
 }
-
-
-
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
 
 
+
 <?php
-include('head.php');
+include ('head.php');
 ?>
 
 <body>
 
     <?php
-    include('header.php');
+    include ('header.php');
     ?>
 
     <main class="main">
@@ -30,83 +28,109 @@ include('head.php');
         <section class="viewlist section container">
 
             <div class="product-detail">
-                <div class="product-link">
-                    Trang chủ/Sản Phẩm/REINER/AIR COMPRESSOR/REINER SIMPLE (RVL)/RVL – ( 5.5KW ~ 132KW )
-                </div>
+
+                <button id="url" class="btn btn-primary back" type="button">
+                    <i class="fas fa-arrow-left"></i>
+                </button>
 
                 <div class="product-more-info">
                     <?php while ($row = $result->fetch_assoc()) { ?>
                         <div class="product-more-info1">
                             <div class="product-info-img">
-                                <img src="admin/uploads/<?= $row['image']?>" alt="">
+                                <!-- <img src="admin/uploads/<?= $row['image'] ?>" alt=""> -->
+
+                                <section class="show-slider-img">
+                                    <div class="slider-for">
+                                        <div>
+                                            <img src="admin/uploads/<?= isset($row['image']) ? $row['image'] : '' ?>" alt=""
+                                                style="width:100%">
+                                        </div>
+                                        <div>
+                                            <img src="admin/uploads/<?= isset($row['image1']) ? $row['image1'] : '' ?>"
+                                                alt="" style="width:100%">
+                                        </div>
+                                        <div>
+                                            <img src="admin/uploads/<?= isset($row['image2']) ? $row['image2'] : '' ?>"
+                                                alt="" style="width:100%">
+                                        </div>
+                                        <div>
+                                            <img src="admin/uploads/<?= isset($row['image3']) ? $row['image3'] : '' ?>"
+                                                alt="" style="width:100%">
+                                        </div>
+                                        <div>
+                                            <img src="admin/uploads/<?= isset($row['image4']) ? $row['image4'] : '' ?>"
+                                                alt="" style="width:100%">
+                                        </div>
+                                    </div>
+                                    <div class="slider-nav">
+                                        <div>
+                                            <img src="admin/uploads/<?= isset($row['image']) ? $row['image'] : '' ?>" alt=""
+                                                style="width:100%">
+                                        </div>
+
+                                        <div>
+                                            <img src="admin/uploads/<?= isset($row['image1']) ? $row['image1'] : '' ?>"
+                                                alt="" style="width:100%">
+                                        </div>
+
+                                        <div>
+                                            <img src="admin/uploads/<?= isset($row['image2']) ? $row['image2'] : '' ?>"
+                                                alt="" style="width:100%">
+                                        </div>
+                                        
+                                        <?php if(isset($row['image3'])): ?>
+                                        <div>
+                                            <img src="admin/uploads/<?= $row['image3']?>"
+                                                alt="" style="width:100%">
+                                        </div>
+                                        <?php endif; ?>
+
+                                        <?php if(isset($row['image4'])): ?>
+                                        <div>
+                                            <img src="admin/uploads/<?= $row['image4']?>"
+                                                alt="" style="width:100%">
+                                        </div>
+                                        <?php endif; ?>
+
+                                    </div>
+                                </section>
                             </div>
 
                             <div class="product-info-title">
-                                <h2><?= $row['name']?> </h2>
-                                <h2>Model : RVL (Single stage – Inverter)</h2>
-                                <p>Liên Hệ : 096 355 15 14</p>
-                                <p>Gia: Lien he</p>
-                                <button><a href="">Lien he</a></button>
+                                <h2><?= $row['name'] ?> </h2>
+                                <p>Mã: <?= $row['model'] ?></p>
+                                <p style="text-transform: capitalize;">
+                                    Danh mục:
+                                    <?php while ($row2 = $cate2->fetch_assoc()) {
+                                        if ($row2['id'] == $row['category']) {
+                                            echo $row2['name'];
+                                        }
+                                    } ?>
+                                </p>
+                                <p>Giá: <?= $row['cost'] ?></p>
+                                <p>Liên Hệ : 096 355 1514</p>
+                                <button><a href="">Liên Hệ</a></button>
                             </div>
                         </div>
 
                         <div class="product-more-info2">
-                            <h1>mo ta</h1>
-                            <p>MÁY NÉN KHÍ HIỆU REINER – MODEL RVL
-                                Máy nén khí Reiner được sử dụng Motor Inverter đạt tiêu chuẩn IE4 (từ trường vĩnh cửu) ,
-                                Permanent magnet motor PMM
-                                Cấp bảo vệ động cơ IP55 chống bụi mịn và nước áp lực cao
-                                Chi phí phụ tùng bảo trì giá thấp hơn các nhãn hiệu khác ít nhất là 40%.
-                                Máy được bảo hành 2 năm cho toàn bộ , riêng buồng nén 5 năm (Bảo hành thay mới 100% với bộ
-                                phận bị hư Không sữa chữa).
-                                Đạt tiêu chuẩn chất lượng CHÂU ÂU- CE marking (certification of international organizations
-                                – ECM).
-                                QUỐC TẾ ISO 9001-2015, ISO14001:2015 được chứng nhận bởi tổ chức Tổ chức Quốc tế (IAF)
-                                Chi phí phụ tùng bảo trì giá thấp hơn các nhãn hiệu khác
-                                <br>
-
-                                MÁY NÉN KHÍ HIỆU REINER – MODEL RVL
-                                Máy nén khí Reiner được sử dụng Motor Inverter đạt tiêu chuẩn IE4 (từ trường vĩnh cửu) ,
-                                Permanent magnet motor PMM
-                                Cấp bảo vệ động cơ IP55 chống bụi mịn và nước áp lực cao
-                                Chi phí phụ tùng bảo trì giá thấp hơn các nhãn hiệu khác ít nhất là 40%.
-                                Máy được bảo hành 2 năm cho toàn bộ , riêng buồng nén 5 năm (Bảo hành thay mới 100% với bộ
-                                phận bị hư Không sữa chữa).
-                                Đạt tiêu chuẩn chất lượng CHÂU ÂU- CE marking (certification of international organizations
-                                – ECM).
-                                QUỐC TẾ ISO 9001-2015, ISO14001:2015 được chứng nhận bởi tổ chức Tổ chức Quốc tế (IAF)
-                                Chi phí phụ tùng bảo trì giá thấp hơn các nhãn hiệu khác
-                                <br>
-
-                                MÁY NÉN KHÍ HIỆU REINER – MODEL RVL
-                                Máy nén khí Reiner được sử dụng Motor Inverter đạt tiêu chuẩn IE4 (từ trường vĩnh cửu) ,
-                                Permanent magnet motor PMM
-                                Cấp bảo vệ động cơ IP55 chống bụi mịn và nước áp lực cao
-                                Chi phí phụ tùng bảo trì giá thấp hơn các nhãn hiệu khác ít nhất là 40%.
-                                Máy được bảo hành 2 năm cho toàn bộ , riêng buồng nén 5 năm (Bảo hành thay mới 100% với bộ
-                                phận bị hư Không sữa chữa).
-                                Đạt tiêu chuẩn chất lượng CHÂU ÂU- CE marking (certification of international organizations
-                                – ECM).
-                                QUỐC TẾ ISO 9001-2015, ISO14001:2015 được chứng nhận bởi tổ chức Tổ chức Quốc tế (IAF)
-                                Chi phí phụ tùng bảo trì giá thấp hơn các nhãn hiệu khác
+                            <h1 style="text-align:center">Mô tả sản phẩm</h1>
+                            <p><?php
+                            $content = $row['content'];
+                            $content = preg_replace('/<img(.*?)src="(.*?)"(.*?)>/i', '<img$1src="admin/$2"$3>', $content);
+                            echo $content;
+                            ?>
                             </p>
                         </div>
                     <?php } ?>
                 </div>
             </div>
 
-
-
-
-
-
-
-
         </section>
     </main>
 
     <?php
-    include('footer.php');
+    include ('footer.php');
     ?>
 
     <!-- scroll up -->
@@ -115,6 +139,31 @@ include('head.php');
     </a>
 
     <script src="assets/js/main.js"></script>
+    <script src="assets/js/back.js"></script>
+
+    <script>
+
+        $('.slider-for').slick({
+            slidesToShow: 1,
+            slidesToScroll: 1,
+            arrows: true,
+            fade: true,
+            asNavFor: '.slider-nav'
+        });
+
+
+        $('.slider-nav').slick({
+            slidesToShow: 5,
+            slidesToScroll: 1,
+            asNavFor: '.slider-for',
+            dots: false,
+            centerMode: true,
+            focusOnSelect: true
+        });
+
+
+
+    </script>
 
 </body>
 
