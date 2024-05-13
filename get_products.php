@@ -23,7 +23,7 @@ if(isset($_POST['categoryId'])) {
             $output .= '<h3>' . $row['name'] . '</h3>';
             $output .= '<h3>Mã: ' . $row['model'] . '</h3>';
             $output .= '<span>Giá: ' . $row['cost'] . '</span>';
-            $output .= '<a href="product-detail.php">Xem thêm</a href="#">';
+            $output .= '<a href="product-detail.php?id='.$row['id'].'">Xem thêm</a href="#">';
             $output .= '</div>';
         }
     } else {

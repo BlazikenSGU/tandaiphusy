@@ -156,6 +156,7 @@ img {
 }
 
 nav.nav.container a {
+    text-transform: capitalize;
     color: black;
     text-decoration: none;
 }
@@ -166,7 +167,7 @@ nav.nav.container a {
     color: var(--title-color);
 }
 
-.nav__logo {
+/* .nav__logo {
     text-transform: uppercase;
     font-weight: 700;
     letter-spacing: -1px;
@@ -174,6 +175,10 @@ nav.nav.container a {
     align-items: center;
     column-gap: .5rem;
     transition: .3s;
+} */
+
+.nav.nav.container a img{
+    height: 80px;
 }
 
 .nav__logo-icon {
@@ -181,9 +186,9 @@ nav.nav.container a {
     color: var(--first-color);
 }
 
-.nav__logo:hover {
+/* .nav__logo:hover {
     color: red;
-}
+} */
 
 .nav__toggle {
     display: inline-flex;
@@ -219,7 +224,9 @@ nav.nav.container a {
     display: flex;
     flex-direction: column;
     row-gap: 1.5rem;
+    margin-bottom: 0;
 }
+
 
 
 
@@ -603,7 +610,7 @@ nav.nav.container a {
     background: white;
 }
 
-.product-show:hover{
+.product-show:hover {
     cursor: pointer;
     background-color: silver;
 }
@@ -620,7 +627,7 @@ nav.nav.container a {
     grid-template-columns: 1fr 1fr 1fr;
 }
 
-.product-list p{
+.product-list p {
     color: red;
 }
 
@@ -974,7 +981,12 @@ section.container.home__nv {
     margin-top: 2rem;
 }
 
-.product-detail button{
+.product-detail .product_detail_title{
+    text-transform: capitalize;
+    text-align: center;
+}
+
+.product-detail button {
     margin-bottom: 1rem;
     padding: .3rem 1.5rem;
 }
@@ -1019,7 +1031,7 @@ section.show-slider-img {
     margin: 0 auto;
 }
 
-.product-info-img img{
+.product-info-img img {
     max-width: 300px;
 }
 
@@ -1047,11 +1059,11 @@ section.show-slider-img {
     border-radius: 15px;
 }
 
-.product-info-title button a{
+.product-info-title button a {
     text-decoration: none;
 }
 
-.product-info-title button:hover{
+.product-info-title button:hover {
     background-color: silver;
 }
 
@@ -1511,18 +1523,18 @@ body.dark-theme {
     width: 100%;
 }
 
-.show-slider-img .slider-for button{
+.show-slider-img .slider-for button {
     background-color: silver;
     margin-bottom: 0;
     height: 30px;
     border-radius: 20px;
 }
 
-.show-slider-img .slider-for button::before{
+.show-slider-img .slider-for button::before {
     margin: 0 -10px;
 }
 
-.slick-list .slick-track .slick-slide img{
+.slick-list .slick-track .slick-slide img {
     margin: 0 auto;
 }
 

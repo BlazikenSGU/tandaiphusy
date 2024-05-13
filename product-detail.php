@@ -29,6 +29,8 @@ include ('head.php');
 
             <div class="product-detail">
 
+                <h2 class="product_detail_title">xem chi tiết</h2>
+
                 <button id="url" class="btn btn-primary back" type="button">
                     <i class="fas fa-arrow-left"></i>
                 </button>
@@ -37,7 +39,7 @@ include ('head.php');
                     <?php while ($row = $result->fetch_assoc()) { ?>
                         <div class="product-more-info1">
                             <div class="product-info-img">
-                                <!-- <img src="admin/uploads/<?= $row['image'] ?>" alt=""> -->
+                           
 
                                 <section class="show-slider-img">
                                     <div class="slider-for">
@@ -45,22 +47,14 @@ include ('head.php');
                                             <img src="admin/uploads/<?= isset($row['image']) ? $row['image'] : '' ?>" alt=""
                                                 style="width:100%">
                                         </div>
-                                        <div>
-                                            <img src="admin/uploads/<?= isset($row['image1']) ? $row['image1'] : '' ?>"
-                                                alt="" style="width:100%">
-                                        </div>
-                                        <div>
-                                            <img src="admin/uploads/<?= isset($row['image2']) ? $row['image2'] : '' ?>"
-                                                alt="" style="width:100%">
-                                        </div>
-                                        <div>
-                                            <img src="admin/uploads/<?= isset($row['image3']) ? $row['image3'] : '' ?>"
-                                                alt="" style="width:100%">
-                                        </div>
-                                        <div>
-                                            <img src="admin/uploads/<?= isset($row['image4']) ? $row['image4'] : '' ?>"
-                                                alt="" style="width:100%">
-                                        </div>
+                                        <?php for ($i = 1; $i <= 4; $i++): ?>
+                                            <?php if (isset($row['image' . $i]) && !empty($row['image' . $i])): ?>
+                                                <div>
+                                                    <img src="admin/uploads/<?php echo $row['image' . $i]; ?>" alt=""
+                                                        style="width:100%">
+                                                </div>
+                                            <?php endif; ?>
+                                        <?php endfor; ?>
                                     </div>
                                     <div class="slider-nav">
                                         <div>
@@ -68,29 +62,14 @@ include ('head.php');
                                                 style="width:100%">
                                         </div>
 
-                                        <div>
-                                            <img src="admin/uploads/<?= isset($row['image1']) ? $row['image1'] : '' ?>"
-                                                alt="" style="width:100%">
-                                        </div>
+                                        <?php for ($i = 1; $i <= 4; $i++): ?>
 
-                                        <div>
-                                            <img src="admin/uploads/<?= isset($row['image2']) ? $row['image2'] : '' ?>"
-                                                alt="" style="width:100%">
-                                        </div>
-                                        
-                                        <?php if(isset($row['image3'])): ?>
-                                        <div>
-                                            <img src="admin/uploads/<?= $row['image3']?>"
-                                                alt="" style="width:100%">
-                                        </div>
-                                        <?php endif; ?>
-
-                                        <?php if(isset($row['image4'])): ?>
-                                        <div>
-                                            <img src="admin/uploads/<?= $row['image4']?>"
-                                                alt="" style="width:100%">
-                                        </div>
-                                        <?php endif; ?>
+                                            <?php if (isset($row['image' . $i])): ?>
+                                                <div>
+                                                    <img src="admin/uploads/<?= $row['image' . $i]; ?>" alt="" style="width:100%">
+                                                </div>
+                                            <?php endif; ?>
+                                        <?php endfor; ?>
 
                                     </div>
                                 </section>

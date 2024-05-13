@@ -1,19 +1,26 @@
 <?php
-include('connectDB.php');
+include ('connectDB.php');
+
+$result = null;
+if (isset($_GET['id'])) {
+    $id = $_GET['id'];
+    $sql = "SELECT * FROM product WHERE category = '" . $id . "'";
+    $result = $conn->query($sql);
+}
+
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
 
-
 <?php
-include('head.php');
+include ('head.php');
 ?>
 
 <body>
 
     <?php
-    include('header.php');
+    include ('header.php');
     ?>
 
     <main class="main">
@@ -30,12 +37,12 @@ include('head.php');
                     </div>
 
                     <div class="name-menu">
-                        <label for=""><a href="">Danh mục <i class="ri-restart-line"></i></a></label>
+                        <label for="" ><a href="product.php" style="color: red">Xem toàn bộ <i class="ri-file-list-line"></i></a></label>
                         <ul class="menu">
 
                             <?php
                             $rows = array();
-                            while ($row = $cate2->fetch_assoc()) {
+                            while ($row = $category2->fetch_assoc()) {
                                 $rows[] = $row;
                             }
                             foreach ($rows as $row) {
@@ -60,29 +67,61 @@ include('head.php');
                     </div>
                 </div>
                 <div class="product-item">
-
                     <div class="product-list" id="productList">
-                        <?php while ($row = $product2->fetch_assoc()) { ?>
-                            <div class="product-show">
-                                <img src="admin/uploads/<?= $row['image'] ?>" alt="">
-                                <h3>
-                                    <?= $row['name'] ?>
-                                </h3>
-                                <h3>Mã:
-                                    <?= $row['model'] ?>
-                                </h3>
-                                <span>Giá:
-                                    <?php
-                                    if ($row['cost'] == 0) {
-                                        echo 'Liên Hệ';
-                                    } else {
-                                        echo $row['cost'];
-                                    }
-                                    ?>
-                                </span>
-                                <a href="product-detail.php?id=<?= $row['id']?>">Xem thêm</a>
-                            </div>
-                        <?php } ?>
+
+                        <?php if (is_object($result) && $result->num_rows > 0) {
+                            while ($view = $result->fetch_assoc()) { ?>
+                                <div class="product-show">
+                                    <img src="admin/uploads/<?= $view['image'] ?>" alt="">
+                                    <h3>
+                                        <?= $view['name'] ?>
+                                    </h3>
+                                    <h3>Mã:
+                                        <?= $view['model'] ?>
+                                    </h3>
+                                    <span>Giá:
+                                        <?php
+                                        if ($view['cost'] == 0) {
+                                            echo 'Liên Hệ';
+                                        } else {
+                                            echo $view['cost'];
+                                        }
+                                        ?>
+                                    </span>
+                                    <a href="product-detail.php?id=<?= $view['id'] ?>">Xem thêm</a>
+                                </div>
+                            <?php }
+                        } else if ($result  !== null) {
+                            echo '<p>Không có sản phẩm nào.</p>';
+                        } else {
+                            while ($row = $product2->fetch_assoc()) { ?>
+                                    <div class="product-show">
+                                        <img src="admin/uploads/<?= $row['image'] ?>" alt="">
+                                        <h3>
+                                        <?= $row['name'] ?>
+                                        </h3>
+                                        <h3>Mã:
+                                        <?= $row['model'] ?>
+                                        </h3>
+                                        <span>Giá:
+                                            <?php
+                                            if ($row['cost'] == 0) {
+                                                echo 'Liên Hệ';
+                                            } else {
+                                                echo $row['cost'];
+                                            }
+                                            ?>
+                                        </span>
+                                        <a href="product-detail.php?id=<?= $row['id'] ?>">Xem thêm</a>
+                                    </div>
+                            <?php }
+                        } ?>
+
+
+
+
+
+
                     </div>
                 </div>
             </div>
@@ -90,7 +129,7 @@ include('head.php');
     </main>
 
     <?php
-    include('footer.php');
+    include ('footer.php');
     ?>
 
     <!-- view follow name category -->

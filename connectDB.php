@@ -8,11 +8,19 @@ $product->execute();
 
 $product2 = $product->get_result();
 
-//category
+//category page home
 $cate = $conn->prepare("SELECT * FROM category");
 $cate->execute();
 
 $cate2 = $cate->get_result();
+
+
+//category page product
+$category = $conn->prepare("SELECT * FROM category");
+$category->execute();
+
+$category2 = $category->get_result();
+
 
 
 //sap xep news
