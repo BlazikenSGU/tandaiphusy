@@ -593,7 +593,7 @@ form.form_login label {
     font-weight: bold;
 }
 
-form.form_login input[type='text'] {
+form.form_login input[type='text'], form.form_login input[type='password'] {
     padding: .3rem;
     margin: 1rem 0;
 }

@@ -4,7 +4,7 @@
 
         <div class="footer-main-info">
             <div class="footer__content">
-                <a href="home" class="footer__logo">
+                <a href="home" class="footer__logo" style="text-decoration: none">
                     TÂN ĐẠI PHÚ SỸ
                 </a>
                 <h5>Công Ty TNHH Thiết Bị Công Nghiệp Tân Đại Phú Sỹ</h5>
@@ -14,8 +14,6 @@
         </div>
 
         <div class="footer__container container grid">
-
-
 
             <div class="footer__content">
                 <h3 class="footer__title">
@@ -28,8 +26,6 @@
                     <li class="footer__infomation">Liên hệ</li>
                 </ul>
             </div>
-
-
 
             <div class="footer__content">
                 <h3 class="footer__title">
@@ -78,8 +74,6 @@
                     <li class="footer__infomation">MST: 0303066761-005</li>
                 </ul>
             </div>
-
-
         </div>
 
         <div class="footer-main-copy">

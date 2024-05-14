@@ -72,7 +72,7 @@ if(isset($_POST['login']) && ($_POST['login'])){
                 <input type="text" name="username">
 
                 <label >Password</label>
-                <input type="text" name="password">
+                <input type="password" name="password">
 
                 <input name="login" class="btn btn-success" type="submit" value="LOGIN">
                 <?php 
