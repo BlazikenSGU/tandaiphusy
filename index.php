@@ -73,7 +73,7 @@ include ('head.php');
             </div>
         </section>
 
-        <section class="home__about">
+        <!-- <section class="home__about">
             <div class="home__about__main">
                 <div class="home__about__main__info">
                     <h1>VỀ CHÚNG TÔI</h1>
@@ -83,7 +83,7 @@ include ('head.php');
                 </div>
             </div>
             </div>
-        </section>
+        </section> -->
 
 
         <section class="questions section" id="about">
